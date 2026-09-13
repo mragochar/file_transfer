@@ -1,4 +1,3 @@
-import json
 def send_file(filename: str = "mytext.txt", testing: bool = False) -> None:
     import socket
 
