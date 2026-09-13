@@ -26,4 +26,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Lint (ruff)
-        uses: astral-sh/ruff-action@v4
+        uses: astral-sh/ruff-action@v4.1.0
