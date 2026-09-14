@@ -14,6 +14,9 @@ def test_send_file_running_as_expected(file, sock) -> None:
 
     # ===== invoke =====
     send_file(filename="mytext.txt", testing=True)
+    
+    # Delibarate Failure
+    sock.assert_did_not_exist()
 
     # ===== ensurance =====
     sock.assert_called_once()
