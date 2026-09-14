@@ -48,9 +48,8 @@ def main() -> None:
     print(f"| ⏱️ Duration | {duration:.3f}s |")
     print()
 
-
-	# Test Details (Table)
-	print("## Test Details")
+    # Test Details (Table)
+    print("## Test Details")
     print()
 
     print("| Test | Result | Duration |")
