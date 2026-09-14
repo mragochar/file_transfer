@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def main() -> None:
-    xml_file = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("tests-report.xml")
+    xml_file = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("test-report.xml")
 
     root = ET.parse(xml_file).getroot()
 
