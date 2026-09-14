@@ -29,6 +29,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Cache Ruff Cache
+        uses: actions/cache@v6
+        with:
+          path: .ruff_cache
+          key: ruff-${{ runner.os }}-${{ hashFiles('**/*.py') }}
+          restore-keys: |
+            ruff-${{ runner.os }}-
+
       - name: Lint (ruff)
         uses: astral-sh/ruff-action@v4.1.0
 
