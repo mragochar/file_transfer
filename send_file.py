@@ -5,7 +5,6 @@ def send_file(filename: str = "mytext.txt", testing: bool = False) -> None:
     sock = socket.socket()  # Create a socket object
     host = socket.gethostname()  # Get local machine name
     sock.bind((host, port))  # Bind to the port
-    sock.bind((host, port))  # Bind twice to see if Report is still Uploaded 
     sock.listen(5)  # Now wait for client connection.
 
     print("Server listening....")
