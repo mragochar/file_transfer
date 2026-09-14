@@ -8,7 +8,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+        os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -16,7 +20,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
-          python-version: "3.13"
+          python-version: ${{ matrix.python-version }}
           cache: "pip"
           cache-dependency-path: requirements.txt
 
@@ -27,3 +31,12 @@ jobs:
 
       - name: Lint (ruff)
         uses: astral-sh/ruff-action@v4.1.0
+
+      - name: Run Tests
+        run: python -m pytest --junitxml=test-report.xml
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-report
+          path: test-report.xml
