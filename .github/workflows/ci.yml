@@ -63,4 +63,7 @@ jobs:
           name: test-report
 
       - name: Parse Report And Write Job Summary
+        env:
+          PYTHONIOENCODING: utf-8
         run: python scripts/summarize_report.py >> "$GITHUB_STEP_SUMMARY"
+        shell: bash
